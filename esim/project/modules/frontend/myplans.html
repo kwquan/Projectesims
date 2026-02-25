@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Plans</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 40px;
+            text-align: center;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+        }
+
+        table {
+            width: 90%;
+            margin: auto;
+            border-collapse: collapse;
+            background: white;
+        }
+
+        th, td {
+            border: 1px solid #ccc;
+            padding: 10px;
+        }
+
+        th {
+            background-color: #007bff;
+            color: white;
+        }
+
+        button {
+            padding: 6px 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .activate-btn {
+            background-color: #28a745;
+            color: white;
+        }
+
+        .back-btn {
+            margin-top: 20px;
+            background-color: #6c757d;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+<h2>My Plans</h2>
+
+<table id="plansTable">
+    <thead>
+        <tr>
+            <th>Plan</th>
+            <th>Data (GB)</th>
+            <th>Duration (Days)</th>
+            <th>Status</th>
+            <th>Data Remaining</th>
+            <th>Expires At</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+    </tbody>
+</table>
+
+<button class="back-btn" onclick="goBack()">Back to Dashboard</button>
+
+<script>
+    const username = localStorage.getItem("username");
+
+    if (!username) {
+        alert("User not logged in.");
+        window.location.href = "login.html";
+    }
+
+    async function loadPlans() {
+        try {
+            const response = await fetch(`/esims/${username}`);
+            const plans = await response.json();
+
+            const tableBody = document.querySelector("#plansTable tbody");
+            tableBody.innerHTML = "";
+
+            plans.forEach(plan => {
+                const row = document.createElement("tr");
+                row.dataset.planid = plan.planid;
+
+                row.innerHTML = `
+                    <td>${plan.country}</td>
+                    <td>${plan.data}</td>
+                    <td>${plan.duration}</td>
+                    <td>${plan.status}</td>
+                    <td>${plan.data_remaining}</td>
+                    <td>${plan.expires_at ? new Date(plan.expires_at).toLocaleDateString() : "None"}</td>
+                    <td></td>
+                `;
+
+                if (plan.status === "new") {
+                    const activateBtn = document.createElement("button");
+                    activateBtn.textContent = "Activate";
+                    activateBtn.classList.add("activate-btn");
+
+                    activateBtn.onclick = () => activatePlan(plan.planid, plan.duration);
+
+                    row.children[6].appendChild(activateBtn);
+                }
+
+                tableBody.appendChild(row);
+            });
+
+        } catch (err) {
+            console.error(err);
+        }
+    }
+
+    async function activatePlan(planId, duration) {
+        const today = new Date();
+        const expires = new Date(today);
+        expires.setDate(today.getDate() + duration);
+
+        try {
+            await fetch(`/esims/${planId}`, {
+                method: "PUT",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    status: "activated",
+                    expires_at: expires
+                })
+            });
+
+            loadPlans(); // refresh table
+
+        } catch (err) {
+            console.error(err);
+        }
+    }
+
+    function goBack() {
+        window.location.href = "dashboard.html";
+    }
+
+    loadPlans();
+</script>
+
+</body>
+</html>

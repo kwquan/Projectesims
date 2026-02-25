@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Create Account</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .register-form {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        input[type="email"],
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .login-link {
+            text-align: center;
+            margin-top: 15px;
+        }
+
+        .login-link a {
+            text-decoration: none;
+            color: #007bff;
+        }
+
+        .login-link a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="register-form">
+        <h2>Create Account</h2>
+        <form id="register-form" action="/register" method="POST">
+            <input type="email" id="user_email" placeholder="your email" required>
+            <input type="password" id="user_password" placeholder="your password" required>
+            <input type="password" id="confirm-password" placeholder="confirm Password" required>
+            <button type="submit">Create Account</button>
+        </form>
+        <p id="success-message" class="success-message"></p>
+        <p id="error-message" class="error-message"></p>
+
+        <div class="login-link">
+            Already have an account?
+            <a href="/login.html">Login</a>
+        </div>
+
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+
+        const form = document.getElementById("register-form")
+
+        form.addEventListener("submit", async (e) => {
+        e.preventDefault()
+
+        const username = document.getElementById("user_email").value
+        const password = document.getElementById("user_password").value
+        const confirmPassword = document.getElementById("confirm-password").value
+
+        const errorMessage = document.getElementById("error-message")
+        const successMessage = document.getElementById("success-message")
+
+        errorMessage.textContent = ""
+        successMessage.textContent = ""
+
+        if (password !== confirmPassword) {
+            errorMessage.textContent = "Passwords do not match"
+            return
+        }
+
+        const response = await fetch("/register", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ username, password })
+        })
+
+        const data = await response.json()
+
+        if (!response.ok) {
+            errorMessage.textContent = data.message
+        } else {
+            successMessage.textContent = "Account created successfully!"
+            window.location.href = "/login.html"
+        }
+    })
+})
+    </script>
+
+</body>
+</html>
