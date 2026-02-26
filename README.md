@@ -1,6 +1,6 @@
 ![alt text](https://github.com/kwquan/Projectesims/blob/main/Projectesims.png)
 
-This repo contains the code used for Project esims, a fullstack project built to simulate an online esims management system that allows users to register, buy and activate different plans.
+This repo contains the code used for Project esims, a fullstack project built to simulate an online esims management system that allows users to register account, buy and activate different plans.
 
 ## Description
 
