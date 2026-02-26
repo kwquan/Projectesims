@@ -6,15 +6,14 @@ This repo contains the code used for Project esims, a fullstack project built to
 
 ## Description
 
-1) User starts from login page(login.html)
-   \\ [ユーザーはログインページ(login.html)からログインを開始します。]
-3) User can either enter credentials(if account is already created) OR create account[ユーザーは認証情報を入力するか（アカウント作成済みの場合）、アカウントを作成します。]
-4) If user enters credentials, he is directed to dashboard[ユーザーが認証情報を入力すると、ダッシュボードに移動します。]
-5) If user creates account successfuly, he is directed to dashboard[ユーザーがアカウントを作成すると、ダッシュボードに移動します。]
-6) From dashboard, user can choose to check his purchased plans OR go to shop[ダッシュボードから、ユーザーは購入したプランを確認するか、ショップに移動するかを選択できます。]
-7) In shop, user can buy/edit orders and make payment[ショップでは、ユーザーは注文を購入/編集し、支払いを行うことができます。]
-8) Upon successful payment, user is directed to his purchased plans[支払いが完了すると、ユーザーは購入したプランに移動します。]
-9) User can check plan usage, status, expiry dates of his purchased plans[ユーザーは、購入したプランの使用状況、ステータス、有効期限を確認できます。]
+1) User starts from login page(login.html)[ユーザーはログインページ(login.html)からログインを開始します。]
+2) User can either enter credentials(if account is already created) OR create account[ユーザーは認証情報を入力するか（アカウント作成済みの場合）、アカウントを作成します。]
+3) If user enters credentials, he is directed to dashboard[ユーザーが認証情報を入力すると、ダッシュボードに移動します。]
+4) If user creates account successfuly, he is directed to dashboard[ユーザーがアカウントを作成すると、ダッシュボードに移動します。]
+5) From dashboard, user can choose to check his purchased plans OR go to shop[ダッシュボードから、ユーザーは購入したプランを確認するか、ショップに移動するかを選択できます。]
+6) In shop, user can buy/edit orders and make payment[ショップでは、ユーザーは注文を購入/編集し、支払いを行うことができます。]
+7) Upon successful payment, user is directed to his purchased plans[支払いが完了すると、ユーザーは購入したプランに移動します。]
+8) User can check plan usage, status, expiry dates of his purchased plans[ユーザーは、購入したプランの使用状況、ステータス、有効期限を確認できます。]
 
 ## Notes
 1) frontend folder contains 7 html files created using chatgpt[frontend フォルダには、chatgpt を使用して作成された 7 つの HTML ファイルが含まれています。]
