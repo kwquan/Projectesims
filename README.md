@@ -6,32 +6,19 @@ This repo contains the code used for Project esims, a fullstack project built to
 
 ## Description
 
-1) User starts from login page(login.html)
-2) User can either enter credentials(if account is already created) OR create account
-3) If user enters credentials, he is directed to dashboard
-4) If user creates account successfuly, he is directed to dashboard
-5) From dashboard, user can choose to check his purchased plans OR go to shop
-6) In shop, user can buy/edit orders and make payment
-7) Upon successful payment, user is directed to his purchased plans
-8) User can check plan usage, status, expiry dates of his purchased plans 
-\
-1) ユーザーはログインページ(login.html)からログインを開始します。
-2) ユーザーは認証情報を入力するか（アカウント作成済みの場合）、アカウントを作成します。
-3) ユーザーが認証情報を入力すると、ダッシュボードに移動します。
-4) ユーザーがアカウントを作成すると、ダッシュボードに移動します。
-5) ダッシュボードから、ユーザーは購入したプランを確認するか、ショップに移動するかを選択できます。
-6) ショップでは、ユーザーは注文を購入/編集し、支払いを行うことができます。
-7) 支払いが完了すると、ユーザーは購入したプランに移動します。
-8) ユーザーは、購入したプランの使用状況、ステータス、有効期限を確認できます。
+1) User starts from login page(login.html)[ユーザーはログインページ(login.html)からログインを開始します。]
+2) User can either enter credentials(if account is already created) OR create account[ユーザーは認証情報を入力するか（アカウント作成済みの場合）、アカウントを作成します。]
+3) If user enters credentials, he is directed to dashboard[ユーザーが認証情報を入力すると、ダッシュボードに移動します。]
+4) If user creates account successfuly, he is directed to dashboard[ユーザーがアカウントを作成すると、ダッシュボードに移動します。]
+5) From dashboard, user can choose to check his purchased plans OR go to shop[ダッシュボードから、ユーザーは購入したプランを確認するか、ショップに移動するかを選択できます。]
+6) In shop, user can buy/edit orders and make payment[ショップでは、ユーザーは注文を購入/編集し、支払いを行うことができます。]
+7) Upon successful payment, user is directed to his purchased plans[支払いが完了すると、ユーザーは購入したプランに移動します。]
+8) User can check plan usage, status, expiry dates of his purchased plans[ユーザーは、購入したプランの使用状況、ステータス、有効期限を確認できます。]
 
 ## Notes
-1) frontend folder contains 7 html files created using chatgpt
-2) 7 typescript files, 6 of them are linked to server.ts which serves as main file
-3) init folder contains sql file required to create the 2 tables[users, esims]
-
-1) frontend フォルダには、chatgpt を使用して作成された 7 つの HTML ファイルが含まれています。
-2) 7 つの TypeScript ファイルがあり、そのうち 6 つはメインファイルとして機能する server.ts にリンクされています。
-3) init フォルダには、2 つのテーブル (users、esims) の作成に必要な SQL ファイルが含まれています。
+1) frontend folder contains 7 html files created using chatgpt[frontend フォルダには、chatgpt を使用して作成された 7 つの HTML ファイルが含まれています。]
+2) 7 typescript files, 6 of them are linked to server.ts which serves as main file[7 つの TypeScript ファイルがあり、そのうち 6 つはメインファイルとして機能する server.ts にリンクされています。]
+3) init folder contains sql file required to create the 2 tables[users, esims][init フォルダには、2 つのテーブル (users、esims) の作成に必要な SQL ファイルが含まれています。]
 
 ## Prerequisites
 1. Copy paste app esim/project/modules folder to desired directory[アプリのesim/project/modulesフォルダをコピーして、目的のディレクトリに貼り付けます。]
