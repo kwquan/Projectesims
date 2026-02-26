@@ -14,7 +14,7 @@ This repo contains the code used for Project esims, a fullstack project built to
 6) In shop, user can buy/edit orders and make payment
 7) Upon successful payment, user is directed to his purchased plans
 8) User can check plan usage, status, expiry dates of his purchased plans 
-//
+<br> 
 1) ユーザーはログインページ(login.html)からログインを開始します。
 2) ユーザーは認証情報を入力するか（アカウント作成済みの場合）、アカウントを作成します。
 3) ユーザーが認証情報を入力すると、ダッシュボードに移動します。
