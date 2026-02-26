@@ -19,7 +19,7 @@ This repo contains the code used for Project esims, a fullstack project built to
 3) init folder contains sql file required to create the 2 tables[users, esims]
 
 ## Prerequisites
-1. Copy paste app folder to desired directory
+1. Copy paste app esim/project/modules folder to desired directory
 2. Run 'docker compose up --build' in terminal
 ![alt text](https://github.com/kwquan/Projectesims/blob/main/images/docker_compose.png)
 3. Ensure container deployed successfully
